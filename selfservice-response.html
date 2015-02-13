@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Guest Portal Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//login-guest.hoglandet.se/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//login-guest.hoglandet.se/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+ <div class="container">
+  <div class="page-header">
+     <h1>Inloggningsuppgifter</h1>
+        
+      </div>
+     
+<table>
+	 <div class="row-fluid">
+	 
+<!-- <div class="col-md-1">&nbsp;</div> <!-- side padding -->
+<div class="col-md-10">
+
+<!--INSERT HEADER HERE --><h1>Self Registration created user: fsdf</h1><!--END HEADER HERE -->
+
+<!--INSERT RESULTS HERE -->
+<!--END RESULTS HERE -->
+
+
+<p>&nbsp;</p>
+
+</table>
+<br>
+<h2>Notera uppgifterna ovan</h2><br>
+<form id="loginform" action="//login-guest.hoglandet.se/" method="get">
+<input type="hidden" name="switch_url" id="switch_url" value="https://webauth.hoglandet.se/login.html" />
+<input type="submit" name="button2" id="button2" onclick="javascript:doOk()" value="Logga in" class="btn btn-lg btn-primary btn-block" />
+</form>			  
+
+</div> <!-- /span10 -->
+<!-- <div class="col-md-1">&nbsp;</div> <!-- side padding -->
+</div> <!-- /fluid row -->
+</div>
+</body>
+</html>
+<script>
+function doOk()
+{
+    document.forms[0].action = "//login-guest.hoglandet.se/login.html?switch_url=https://webauth.hoglandet.se/login.html";
+    document.forms[0].submit();
+}
+</script>

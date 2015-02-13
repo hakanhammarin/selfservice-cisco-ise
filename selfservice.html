@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--saved from url=(0068)https:<html class=" js borderradius boxshadow textshadow opacity cssgradients">
+<head>
+<meta http-equiv="Content-Type"content="text/html; charset=UTF-8">
+<!--Simplified html5 language meta tag-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible"content="IE=8, IE=9, IE=10">
+<meta http-equiv="cache-control"content="no-store">
+<meta http-equiv="Pragma"content="no-cache">
+<meta http-equiv="Expires"content="0">
+<!--Title of the portal,which is dynamic-->
+<title>Höglandet Gäst WiFi Självregistrering</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//login-guest.hoglandet.se/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//login-guest.hoglandet.se/js/bootstrap.min.js"></script>
+
+
+<!--The icon displayed next to title on browser title bar<link rel="icon"type="image/x-icon"href="https://www.cisco.com/web/secure/pmbu/favicon.ico">-->
+<!--Style sheet needed to reset all browser defaults,specific to html5 tags-->
+
+<!-- <link rel="stylesheet"type="text/css"href="./css/reset.css"> -->
+<!--Main Guest Portal style sheet-->
+
+<!-- <link rel="stylesheet"type="text/css"href="./css/guestPortal.css"> -->
+
+<!--These styles must be dynamically generated on the page since they depend on custom input from DB.-->
+<!--<style type="text/css">.bannerHeader{background:url('./hit.png')no-repeat 0 0#ffffff;}.portal form fieldset label.value{text-align:left;}</style>-->
+<!--Main jquery js dependencies-->
+<script type="text/javascript"src="./js/lib/jquery-1.7.2.min.js">
+</script>
+<script type="text/javascript"src="./js/lib/jquery.tmpl.min.js">
+</script>
+<script type="text/javascript"src="./js/lib/jquery.validate.min.js">
+</script>
+<script type="text/javascript"src="./js/lib/additional-methods.min.js">
+</script>
+<script type="text/javascript"src="./js/lib/modernizr.custom.68352.js">
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){$("#cancelBtn").click(function(e){$('#cancelSelfService').submit();});$("#okBtn").click(function(e){$('#cancelSelfService').submit();});var invalidNameCharSet=" !\"#$%&\'()*+,./:;\<=\>?@[\\]^\`{|}~";var invalidCharSet=" %<>";$.validator.addMethod("npattern",function(value,element,param){return this.optional(element)||!(param.test(value));});$("#guForm").validate({rules:{'guestUser.name':{},'guestUser.password':{},'guestUser.firstName':{npattern:/[!"#$%&'()*+,./:;<=>?@\[\\\]^`{|}~]/g,required:true},'guestUser.lastName':{npattern:/[!"#$%&'()*+,./:;<=>?@\[\\\]^`{|}~]/g,required:true},'guestUser.emailAddress':{email2:true,required:true},'guestUser.phoneNumber':{pattern:/^(((\+[1-9]{1,4}[ \-]*)|(\([0-9]{1,3}\)[ \-]*)|([0-9]{1,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,5}?)|([0-9]{4,5}?)$/,},'guestUser.company':{npattern:/[%<>]/g,npattern:/[%<>]/g,},'guestUser.optionalData1':{npattern:/[%<>]/g,},'guestUser.optionalData2':{npattern:/[%<>]/g,},'guestUser.optionalData3':{npattern:/[%<>]/g,},'guestUser.optionalData4':{npattern:/[%<>]/g,},'guestUser.optionalData5':{npattern:/[%<>]/g,},},messages:{'guestUser.name':{},'guestUser.password':{},'guestUser.firstName':{npattern:'Felaktiga tecken upptäckta. Följande tecken är tillåtna:'+invalidNameCharSet,required:"Detta fält är obligatoriskt"},'guestUser.lastName':{npattern:'Felaktiga tecken upptäckta. Följande tecken är tillåtna:'+invalidNameCharSet,required:"Detta fält är obligatoriskt"},'guestUser.emailAddress':{email2:'Detta är inte en giltig Email-address',required:"Detta fält är obligatoriskt"},'guestUser.phoneNumber':{pattern:'Detta är inte ett giltigt telefonnummer',},'guestUser.company':{npattern:'Felaktiga tecken upptäckta. Följande tecken är tillåtna:'+invalidCharSet,},'guestUser.optionalData1':{npattern:'Felaktiga tecken upptäckta. Följande tecken är tillåtna:'+invalidCharSet,},'guestUser.optionalData2':{npattern:'Felaktiga tecken upptäckta. Följande tecken är tillåtna:'+invalidCharSet,},'guestUser.optionalData3':{npattern:'Felaktiga tecken upptäckta. Följande tecken är tillåtna:'+invalidCharSet,},'guestUser.optionalData4':{npattern:'Felaktiga tecken upptäckta. Följande tecken är tillåtna:'+invalidCharSet,},'guestUser.optionalData5':{npattern:'Felaktiga tecken upptäckta. Följande tecken är tillåtna:'+invalidCharSet,},},highlight:function(element){$(element).addClass("highlight");},unhighlight:function(element){$(element).removeClass("highlight");}});});</script>
+<style id="style-1-cropbar-clipper">.en-markup-crop-options{top:18px!important;left:50%!important;margin-left:-100px!important;width:200px!important;border:2px rgba(255,255,255,.38)solid!important;border-radius:4px!important;}.en-markup-crop-options div div:first-of-type{margin-left:0px!important;}
+</style>
+</head>
+<!--We use logical class naming convention in the overall body of the page.-->
+<body class="portal guest">
+<!--The banner on top which expands across the width of the page-->
+<!--All content including logo,bubble and footer-->
+<!--Content bubble-->
+<div class="container">
+<!--Page title and introductory content-->
+<h1>Självregistrering</h1>
+<form class="form-signin" id="guForm" action="./SelfServiceSubmit.action?portalname=selfservice"method="post"novalidate="novalidate">
+<!--Hidden Fields-->
+<input type="hidden"id="username"name="guestUser.name"value="">
+<input type="hidden"id="redirect"name="redirect"value="">
+<input type="hidden"id="err_flag"name="err_flag"value="">
+<input type="hidden"id="requiredFieldMessage"name="requiredFieldMessage"value="Detta fält är obligatoriskt">
+<input type="hidden"id="invalidEmailAddressMessage"name="invalidEmailAddressMessage"value="Detta är inte en giltig Email-address">
+<input type="hidden"id="invalidPhoneNumberMessage"name="invalidPhoneNumberMessage"value="Detta är inte ett giltigt telefonnummer">
+<input type="hidden"id="invalidNameMessage"name="invalidNameMessage"value="Felaktiga tecken upptäckta. Följande tecken är tillåtna:">
+<input type="hidden"id="guestPortal"name="guestPortal"value="selfservice">
+<input type="hidden"id="byodSessionId"name="byodSessionId"value="">
+<input type="hidden"id="redirectUrl"name="redirectUrl"value="">
+<fieldset>
+
+
+<label for="guestUser.firstName" class="sr-only">*Förnamn:</label>
+<input id="guestUser.firstName"name="guestUser.firstName"field="string"value=""placeholder="Förnamn"size="24"maxlength="48"required=""class="form-control">
+<br>
+
+<label for="guestUser.lastName" class="sr-only">*Efternamn:</label>
+<input id="guestUser.lastName"name="guestUser.lastName"field="string"value=""placeholder="Efternamn"size="24"maxlength="48"required=""class="form-control">
+<br>
+
+<label for="guestUser.emailAddress" class="sr-only">*Email Address:</label>
+<input id="guestUser.emailAddress"name="guestUser.emailAddress"field="string"value=""placeholder="Email Address:"size="48"maxlength="64"required=""class="form-control">
+<br>
+
+<label for="guestUser.phoneNumber" class="sr-only">Telefonnummer:</label>
+<input id="guestUser.phoneNumber"name="guestUser.phoneNumber"field="string"value=""placeholder="+46 xxx-xxxxxx"size="24"maxlength="24"class="form-control">
+<br>
+<!--TimeZone-->
+
+<label for="guestUser.timezone" class="sr-only">Tidszon:</label>
+<input type="hidden"name="timezoneRequired"id="timezoneRequired"value="1">
+<select name="guestUser.timezone"id="guestUser.timezone"style="width:225px;"required="true"class="form-control">
+
+
+<option value="GMT +02:00 CET"selected="selected">GMT+02:00 CET</option>
+
+</select>
+<br>
+
+<label class="value">&nbsp;*=Obligatoriska fält</label>
+</fieldset>
+<fieldset>
+<span class="buttonGroup">
+<button id="submitBtn"type="submit" class="btn btn-lg btn-primary btn-block">Skicka</button><br>
+<button id="cancelBtn"type="button" class="btn btn-lg btn-primary btn-block">Avbryt</button>
+</span>
+</fieldset>
+</form>
+<form id="cancelSelfService"action="https://login-guest.hoglandet.se/login.html"method="get">
+<input type="hidden"id="redirect"name="redirect"value="">
+<input type="hidden"id="err_flag"name="err_flag"value="">
+<input type="hidden"id="guestPortal"name="guestPortal"value="selfservice">
+<input type="hidden"id="byodSessionId"name="byodSessionId"value="">
+<input type="hidden"id="redirectUrl"name="redirectUrl"value="">
+</form>
+
+<br>
+<img src="//login-guest.hoglandet.se/hit.png"alt="Höglandet">
+</div>
+
+<!--Main footer containing Help link-->
+
+</body>
+</html>
